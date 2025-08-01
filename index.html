@@ -19,29 +19,53 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <button class="btn btn-primary"
-              onmousedown="sendToUnity('Left', true)"
-              onmouseup="sendToUnity('Left', false)"><</button>
+    <button class="btn btn-primary"
+        onmousedown="sendToUnity('Left', true)" 
+        onmouseup="sendToUnity('Left', false)"
+        ontouchstart="sendToUnity('Left', true)" 
+        ontouchend="sendToUnity('Left', false)">
+      &lt;
+    </button>
 
-      <button class="btn btn-primary"
-              onmousedown="sendToUnity('Right', true)"
-              onmouseup="sendToUnity('Right', false)">></button>
+    <button class="btn btn-primary"
+            onmousedown="sendToUnity('Right', true)" 
+            onmouseup="sendToUnity('Right', false)"
+            ontouchstart="sendToUnity('Right', true)" 
+            ontouchend="sendToUnity('Right', false)">
+      &gt;
+    </button>
 
-      <button class="btn btn-primary"
-              onmousedown="sendToUnity('Action', true)"
-              onmouseup="sendToUnity('Action', false)">Action</button>
+    <button class="btn btn-primary"
+            onmousedown="sendToUnity('Action', true)" 
+            onmouseup="sendToUnity('Action', false)"
+            ontouchstart="sendToUnity('Action', true)" 
+            ontouchend="sendToUnity('Action', false)">
+      Action
+    </button>
 
-      <button class="btn btn-primary"
-              onmousedown="sendToUnity('CastSkill', true)"
-              onmouseup="sendToUnity('CastSkill', false)">Cast spell</button>
+    <button class="btn btn-primary"
+            onmousedown="sendToUnity('CastSkill', true)" 
+            onmouseup="sendToUnity('CastSkill', false)"
+            ontouchstart="sendToUnity('CastSkill', true)" 
+            ontouchend="sendToUnity('CastSkill', false)">
+      Cast spell
+    </button>
 
-      <button class="btn btn-primary"
-              onmousedown="sendToUnity('SwitchSkill', true)"
-              onmouseup="sendToUnity('SwitchSkill', false)">Switch Spell</button>
+    <button class="btn btn-primary"
+            onmousedown="sendToUnity('SwitchSkill', true)" 
+            onmouseup="sendToUnity('SwitchSkill', false)"
+            ontouchstart="sendToUnity('SwitchSkill', true)" 
+            ontouchend="sendToUnity('SwitchSkill', false)">
+      Switch Spell
+    </button>
 
-      <button class="btn btn-primary"
-              onmousedown="sendToUnity('Menu', true)"
-              onmouseup="sendToUnity('Menu', false)">Menu</button>
+    <button class="btn btn-primary"
+            onmousedown="sendToUnity('Menu', true)" 
+            onmouseup="sendToUnity('Menu', false)"
+            ontouchstart="sendToUnity('Menu', true)" 
+            ontouchend="sendToUnity('Menu', false)">
+      Menu
+    </button>
 
       </div>
       <div id="unity-footer">
