@@ -6,6 +6,7 @@
     <title>Unity Web Player | Tomorrowitch</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -17,6 +18,15 @@
         </div>
       </div>
       <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <button class="btn btn-primary" onclick="sendToUnity('Left')"><</button>
+        <button class="btn btn-primary" onclick="sendToUnity('Right')">></button>
+        <button class="btn btn-primary" onclick="sendToUnity('Action')">Action</button>
+        <button class="btn btn-primary" onclick="sendToUnity('CastSpell')">Cast spell</button>
+        <button class="btn btn-primary" onclick="sendToUnity('SwitchSpell')">Switch Spell</button>
+        <button class="btn btn-primary" onclick="sendToUnity('Menu')">Menu</button>
+
+      </div>
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
         <div id="unity-fullscreen-button"></div>
@@ -161,5 +171,22 @@
       window.addEventListener("load", resizeCanvas);
 
     </script>
+    <script>
+      function sendToUnity(action) {
+        // SendMessage(GameObjectName, MethodName, Parameter)
+        gameInstance.SendMessage('HyperInput', 'OnButtonEvent', action);
+        console.log("Sent action to Unity: " + action);
+      }
+
+      // Optional: Key handling
+      document.addEventListener('keydown', function (event) {
+        sendToUnity("KeyDown_" + event.key);
+      });
+
+      document.addEventListener('keyup', function (event) {
+        sendToUnity("KeyUp_" + event.key);
+      });
+    </script>
+
   </body>
 </html>
