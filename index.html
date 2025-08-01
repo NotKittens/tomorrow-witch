@@ -19,7 +19,14 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-    <button class="btn btn-primary"
+      <button class="btn btn-primary" data-action="Left">&lt;</button>
+      <button class="btn btn-primary" data-action="Right">&gt;</button>
+      <button class="btn btn-primary" data-action="Action">Action</button>
+      <button class="btn btn-primary" data-action="CastSkill">Cast spell</button>
+      <button class="btn btn-primary" data-action="SwitchSkill">Switch Spell</button>
+      <button class="btn btn-primary" data-action="Menu">Menu</button>
+  
+    <!-- <button class="btn btn-primary"
         onmousedown="sendToUnity('Left', true)" 
         onmouseup="sendToUnity('Left', false)"
         ontouchstart="sendToUnity('Left', true)" 
@@ -65,7 +72,7 @@
             ontouchstart="sendToUnity('Menu', true)" 
             ontouchend="sendToUnity('Menu', false)">
       Menu
-    </button>
+    </button> -->
 
       </div>
       <div id="unity-footer">
@@ -237,6 +244,33 @@
         sendToUnity("KeyUp_" + event.key);
       });
     </script>
+
+    <script>
+      function isMobile() {
+        return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      }
+
+      function setupButtonEvents() {
+        const buttons = document.querySelectorAll('button[data-action]');
+        const downEvent = isMobile() ? 'touchstart' : 'mousedown';
+        const upEvent = isMobile() ? 'touchend' : 'mouseup';
+
+        buttons.forEach(btn => {
+          const action = btn.getAttribute('data-action');
+
+          btn.addEventListener(downEvent, () => {
+            sendToUnity(action, true);
+          });
+
+          btn.addEventListener(upEvent, () => {
+            sendToUnity(action, false);
+          });
+        });
+      }
+
+      window.addEventListener('load', setupButtonEvents);
+    </script>
+
 
   </body>
 </html>
